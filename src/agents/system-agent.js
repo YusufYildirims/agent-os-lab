@@ -1,4 +1,5 @@
 const os = require('node:os');
+const { validSystemInfo } = require('./system-agent-contract');
 
 async function systemAgent(request) {
   const requestId = request?.requestId ?? null;
@@ -35,13 +36,7 @@ async function systemAgent(request) {
       uptimeSeconds: os.uptime(),
     };
 
-    if (
-      typeof data.hostname !== 'string' ||
-      typeof data.kernelRelease !== 'string' ||
-      !Number.isInteger(data.cpuCount) || data.cpuCount < 1 ||
-      !Number.isInteger(data.totalMemoryBytes) || data.totalMemoryBytes < 0 ||
-      !Number.isFinite(data.uptimeSeconds) || data.uptimeSeconds < 0
-    ) {
+    if (!validSystemInfo(data)) {
       return error('COLLECTION_FAILED', 'Unable to read system information');
     }
 

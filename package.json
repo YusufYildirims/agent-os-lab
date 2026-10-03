@@ -1,14 +1,17 @@
 {
   "name": "ai-native-os",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.2.0",
+  "description": "Minimal AI-native userspace runtime for supervising agents and processes on Linux",
+  "main": "src/core/orchestrator.js",
   "scripts": {
     "start": "node src/cli.js",
-    "test": "node --test"
+    "test": "node --test test/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "engines": {
+    "node": ">=24"
+  }
 }
