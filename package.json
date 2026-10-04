@@ -1,6 +1,6 @@
 {
   "name": "ai-native-os",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Minimal AI-native userspace runtime for supervising agents and processes on Linux",
   "main": "src/core/orchestrator.js",
   "scripts": {
